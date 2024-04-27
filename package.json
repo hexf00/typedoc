@@ -4,7 +4,7 @@
   "version": "0.25.13",
   "homepage": "https://typedoc.org",
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./src/index.ts",
     "./tsdoc.json": "./tsdoc.json",
     "./package.json": "./package.json"
   },
@@ -27,7 +27,8 @@
     "lunr": "^2.3.9",
     "marked": "^4.3.0",
     "minimatch": "^9.0.3",
-    "shiki": "^0.14.7"
+    "shiki": "^0.14.7",
+    "typedoc-plugin-include-example": "file:../typedoc-plugin-include-example"
   },
   "peerDependencies": {
     "typescript": "4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x"
@@ -47,6 +48,7 @@
     "prettier": "3.0.3",
     "puppeteer": "^13.5.2",
     "ts-node": "^10.9.2",
+    "ts-swc-register": "^1.2.5",
     "typescript": "5.4.3"
   },
   "files": [
@@ -61,6 +63,8 @@
     "/tsdoc.json"
   ],
   "scripts": {
+    "test:my1": "ts-node ./src/my-test/build.ts",
+    "test:my2": "node -r ts-swc-register ./src/my-test/build.ts",
     "test": "mocha --config .config/mocha.fast.json",
     "test:cov": "c8 mocha --config .config/mocha.fast.json",
     "doc:c": "node bin/typedoc --tsconfig src/test/converter/tsconfig.json",

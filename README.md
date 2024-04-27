@@ -1,4 +1,4 @@
-# TypeDoc
+# TypeDoc1
 
 Documentation generator for TypeScript projects.
 
